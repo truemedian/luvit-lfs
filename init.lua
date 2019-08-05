@@ -58,7 +58,7 @@ local function dir_close(self)
 end
 
 local function dir_iter(self)
-    assert(self.closed, 'closed directory')
+    assert(not self.closed, 'closed directory')
 
     local ent = uv.fs_scandir_next(self.req)
     if not ent then
